@@ -12,6 +12,7 @@ import Alamofire
 protocol PopularMoviesViewModel {
     var movies: Observable<[PopularMovie]> {get}
     func retrievePopularMovies()
+    func buildImagedUrl(_ path: String) -> String
 }
 
 // Here all business logic

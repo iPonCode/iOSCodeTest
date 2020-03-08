@@ -83,7 +83,8 @@ extension PopularMoviesViewController: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: PopularMoviesViewController.MovieCellIdAndNibName, for: indexPath) as? PopularMovieCellImpl {
         
             let movie = movies[indexPath.row]
-            cell.configure(id: movie.id, title: movie.title, posterPath: movie.posterPath, releaseDate: movie.releaseDate, overview: movie.overview)
+            let url = viewModel.buildImagedUrl(movie.posterPath)
+            cell.configure(id: movie.id, title: movie.title, posterUrl: url, releaseDate: movie.releaseDate, overview: movie.overview)
             //cell.delegate = self // TODO: protocol for cell actions
             cell.tag = indexPath.row
             return cell

@@ -5,6 +5,7 @@ target 'iOSCodeTest' do
 
   use_frameworks!
   pod 'Alamofire', '5.0.2'
+  pod 'AlamofireImage', '4.0.3'
 
 end
 
