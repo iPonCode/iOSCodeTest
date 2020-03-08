@@ -20,6 +20,7 @@ class MovieDetailsViewModelImpl: MovieDetailsViewModel {
     
     // The Webservice call
     func retrieveMovieDetails() {
+
         print("retrieving movie detail from Webservice..")
         
         let baseUrl = "https://api.themoviedb.org/3/movie/"

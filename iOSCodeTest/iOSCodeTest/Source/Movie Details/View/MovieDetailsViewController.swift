@@ -27,7 +27,6 @@ class MovieDetailsViewController: UIViewController {
         // be sure our movie data var not nil with a guard let
         
         title = "Movie Details"
-        print("Movie Details View Loaded.")
         
         // TODO: paint all
     }

@@ -31,8 +31,7 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
                 return
             }
             
-            self?.movies.value = popularMovies.results
-            print(self?.movies.value ?? "NO MOVIES")
+            self?.movies.value = popularMovies.results // Save data received from webservice
             
             }
         }

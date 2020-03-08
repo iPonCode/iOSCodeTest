@@ -9,6 +9,7 @@ import UIKit
 
 class PopularMoviesViewController: UIViewController {
     
+    static let MovieCellIdAndNibName = "PopularMovieCell"
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: PopularMoviesViewModel = PopularMoviesViewModelImpl()
@@ -23,31 +24,40 @@ class PopularMoviesViewController: UIViewController {
 
     func configureView() {
         
-        // temporal button to show the Movie detail ViewController
-        let detailButton = UIBarButtonItem(title: "Detail", style: .done, target: self, action: #selector(viewMovieDetails))
-        navigationItem.setRightBarButton(detailButton, animated: true)
-
+        // Register cell
+        tableView.register(UINib(nibName: "PopularMovieCell", bundle: nil), forCellReuseIdentifier: PopularMoviesViewController.MovieCellIdAndNibName)
         
-        // register cell, set title and paint all others visual items
+        let refreshButton = UIBarButtonItem(title: "Refresh", style: .done, target: self, action: #selector(retrievePopularMovies))
+        navigationItem.setRightBarButton(refreshButton, animated: true)
+
         navigationItem.title = "Popular Movies"
     }
     
     // Create binders
     func bindViewModel() {
         
+        // Start listening to this var
+        viewModel.movies.bind({ [weak self] (result) in
+            guard let result = result else {
+                return
+            }
+            // Whenever chages are made on int, will execute this code
+            self?.movies = result
+            self?.tableView.reloadData()
+        })
+        
     }
     
-    func retrievePopularMovies() {
+    @objc func retrievePopularMovies() {
         viewModel.retrievePopularMovies()
     }
     
-    // TODO: pass movie detail data (and remove @obj)
-    @objc func viewMovieDetails() {
+    // TODO: pass movie detail data
+    func viewMovieDetails() {
         guard let detailMovieViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController else {
             return
         }
-        //detailMovieViewController.setMovie() // pass the data movie selected here
-        //self.present(detailMovieViewController, animated: true, completion: nil)
+        // TODO: pass through the movie.id
         navigationController?.pushViewController(detailMovieViewController, animated: true)
     }
 }
@@ -65,17 +75,16 @@ extension PopularMoviesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20 //TODO: with movies.count (number recieved from webservice)
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // TODO: create a static let with PopularMovieCellIdentifier
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMovieCell", for: indexPath) as? PopularMovieCellImpl {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: PopularMoviesViewController.MovieCellIdAndNibName, for: indexPath) as? PopularMovieCellImpl {
         
             let movie = movies[indexPath.row]
-            cell.configure(id: movie.id, title: movie.title, posterPath: movie.posterPath, releaseDate: movie.releaseDate)
-            //cell.delegate = self // TODO: for protocol for actions
+            cell.configure(id: movie.id, title: movie.title, posterPath: movie.posterPath, releaseDate: movie.releaseDate, overview: movie.overview)
+            //cell.delegate = self // TODO: protocol for cell actions
             cell.tag = indexPath.row
             return cell
         }
