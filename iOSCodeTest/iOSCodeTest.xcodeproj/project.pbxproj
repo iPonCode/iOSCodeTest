@@ -18,6 +18,7 @@
 		D02F784D24144DEF00DD7C8F /* PopularMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F784C24144DEF00DD7C8F /* PopularMovieCell.swift */; };
 		D02F78502414526B00DD7C8F /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F784F2414526B00DD7C8F /* DetailMovieViewController.swift */; };
 		D02F7853241484CD00DD7C8F /* ModelPopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F7852241484CD00DD7C8F /* ModelPopularMovies.swift */; };
+		D02F78552414896000DD7C8F /* ModelMovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F78542414896000DD7C8F /* ModelMovieDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D02F784C24144DEF00DD7C8F /* PopularMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieCell.swift; sourceTree = "<group>"; };
 		D02F784F2414526B00DD7C8F /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		D02F7852241484CD00DD7C8F /* ModelPopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPopularMovies.swift; sourceTree = "<group>"; };
+		D02F78542414896000DD7C8F /* ModelMovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMovieDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D02F7852241484CD00DD7C8F /* ModelPopularMovies.swift */,
+				D02F78542414896000DD7C8F /* ModelMovieDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				D02F784D24144DEF00DD7C8F /* PopularMovieCell.swift in Sources */,
 				D02F7822241409C100DD7C8F /* AppDelegate.swift in Sources */,
 				D02F78502414526B00DD7C8F /* DetailMovieViewController.swift in Sources */,
+				D02F78552414896000DD7C8F /* ModelMovieDetails.swift in Sources */,
 				D02F7853241484CD00DD7C8F /* ModelPopularMovies.swift in Sources */,
 				D02F7824241409C100DD7C8F /* SceneDelegate.swift in Sources */,
 			);

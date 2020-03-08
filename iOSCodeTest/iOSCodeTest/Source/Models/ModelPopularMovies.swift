@@ -57,3 +57,11 @@ enum OriginalLanguage: String, Codable {
     case en = "en"
     case ko = "ko"
 }
+
+// Conforms to Equatable protocol to can check equality with == operator
+// Perhaps, if we need in future to verify duplicates extending Sequence
+extension PopularMovie: Equatable {
+    static func == (lhs: PopularMovie, rhs: PopularMovie) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
