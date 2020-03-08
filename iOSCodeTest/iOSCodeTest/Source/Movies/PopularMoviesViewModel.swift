@@ -38,7 +38,7 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
             }
             
             self?.movies = popularMovies.results
-            print("popular movies received: \(String(describing: self?.movies.count))")
+            print(self?.movies ?? "NO MOVIES")
         }
     }
     
