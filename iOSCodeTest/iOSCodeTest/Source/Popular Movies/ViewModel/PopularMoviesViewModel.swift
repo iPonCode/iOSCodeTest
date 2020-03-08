@@ -41,5 +41,5 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
             print(self?.movies ?? "NO MOVIES")
         }
     }
-    
+        
 }
