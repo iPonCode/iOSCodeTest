@@ -15,16 +15,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="lauchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="kDE-JG-4tX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lauchscreen-power" translatesAutoresizingMaskIntoConstraints="NO" id="dkl-tS-nZv">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="kDE-JG-4tX" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Jvl-yH-KlO"/>
-                            <constraint firstItem="kDE-JG-4tX" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="YUp-D2-YbY"/>
-                            <constraint firstItem="kDE-JG-4tX" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="r31-LL-8Wn"/>
-                            <constraint firstItem="kDE-JG-4tX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="slm-7n-7Xe"/>
+                            <constraint firstAttribute="trailing" secondItem="dkl-tS-nZv" secondAttribute="trailing" id="0i0-Wy-bxz"/>
+                            <constraint firstItem="dkl-tS-nZv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Gcp-OH-wfF"/>
+                            <constraint firstAttribute="bottom" secondItem="dkl-tS-nZv" secondAttribute="bottom" id="OtP-FB-vTQ"/>
+                            <constraint firstItem="dkl-tS-nZv" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="qiP-3k-WHC"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -34,6 +34,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lauchscreen" width="925" height="1388"/>
+        <image name="lauchscreen-power" width="925" height="1388"/>
     </resources>
 </document>
