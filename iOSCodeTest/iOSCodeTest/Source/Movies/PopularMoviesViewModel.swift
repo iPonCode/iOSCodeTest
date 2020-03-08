@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 // With this protocol we can change current ViewModel implementation for another one without change any other thing
 protocol PopularMoviesViewModel {
