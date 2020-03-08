@@ -23,6 +23,7 @@
 		D02F78552414896000DD7C8F /* ModelMovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F78542414896000DD7C8F /* ModelMovieDetails.swift */; };
 		D02F78582414BC4500DD7C8F /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F78572414BC4500DD7C8F /* MovieDetailsViewModel.swift */; };
 		D02F785F241532A800DD7C8F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F785E241532A800DD7C8F /* Observable.swift */; };
+		D02F786124154B4700DD7C8F /* PopularMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02F786024154B4700DD7C8F /* PopularMovieCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		D02F78542414896000DD7C8F /* ModelMovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMovieDetails.swift; sourceTree = "<group>"; };
 		D02F78572414BC4500DD7C8F /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		D02F785E241532A800DD7C8F /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		D02F786024154B4700DD7C8F /* PopularMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularMovieCell.xib; sourceTree = "<group>"; };
 		DC322D858BE1C51A5FE46E43 /* Pods_iOSCodeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				D02F784C24144DEF00DD7C8F /* PopularMovieCell.swift */,
+				D02F786024154B4700DD7C8F /* PopularMovieCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D02F786124154B4700DD7C8F /* PopularMovieCell.xib in Resources */,
 				D02F782E241409C400DD7C8F /* LaunchScreen.storyboard in Resources */,
 				D02F782B241409C400DD7C8F /* Assets.xcassets in Resources */,
 				D02F7829241409C100DD7C8F /* Main.storyboard in Resources */,
