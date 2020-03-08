@@ -48,6 +48,35 @@ struct MovieDetails: Codable {
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
+
+    init() {
+        self.adult = false
+        self.backdropPath = nil
+        self.belongsToCollection = nil
+        self.budget = 0
+        self.genres = []
+        self.homepage = ""
+        self.id = 0
+        self.imdbID = ""
+        self.originalLanguage = ""
+        self.originalTitle = ""
+        self.overview = ""
+        self.popularity = 0.0
+        self.posterPath = nil
+        self.productionCompanies = []
+        self.productionCountries = []
+        self.releaseDate = ""
+        self.revenue = 0
+        self.runtime = 0
+        self.spokenLanguages = []
+        self.status = ""
+        self.tagline = ""
+        self.title = ""
+        self.video = false
+        self.voteAverage = 0.0
+        self.voteCount = 0
+    }
+
 }
 
 // MARK: - Genre

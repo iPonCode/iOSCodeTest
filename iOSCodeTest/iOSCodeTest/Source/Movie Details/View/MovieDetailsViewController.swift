@@ -11,9 +11,12 @@ class MovieDetailsViewController: UIViewController {
     
     // TODO: Declare a var for the movie data
     
+    var viewModel: MovieDetailsViewModel = MovieDetailsViewModelImpl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        retrieveMovieDetails()
     }
     
     // TODO: Function to set movie data
@@ -27,5 +30,9 @@ class MovieDetailsViewController: UIViewController {
         print("Movie Details View Loaded.")
         
         // TODO: paint all
+    }
+    
+    func retrieveMovieDetails() {
+        viewModel.retrieveMovieDetails()
     }
 }
