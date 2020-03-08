@@ -1,4 +1,4 @@
-//  DetailMovieViewController.swift
+//  MovieDetailsViewController.swift
 //  iOSCodeTest
 //
 //  Created by Simón Aparicio on 07/03/2020.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailMovieViewController: UIViewController {
+class MovieDetailsViewController: UIViewController {
     
     // TODO: Declare a var for the movie data
     
@@ -24,7 +24,7 @@ class DetailMovieViewController: UIViewController {
         // be sure our movie data var not nil with a guard let
         
         title = "Movie Details"
-        print("Detail Movie View Loaded.")
+        print("Movie Details View Loaded.")
         
         // TODO: paint all
     }

@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="-292" y="-302"/>
         </scene>
-        <!--Detail Movie View Controller-->
+        <!--Movie Details View Controller-->
         <scene sceneID="qu1-Sl-2WF">
             <objects>
-                <viewController storyboardIdentifier="DetailMovieViewController" id="S03-ZT-C2M" customClass="DetailMovieViewController" customModule="iOSCodeTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieDetailsViewController" id="S03-ZT-C2M" customClass="MovieDetailsViewController" customModule="iOSCodeTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gce-wk-Sir">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

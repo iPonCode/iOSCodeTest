@@ -44,7 +44,7 @@ class PopularMoviesViewController: UIViewController {
     
     // TODO: pass movie detail data (and remove @obj)
     @objc func viewMovieDetail() {
-        guard let detailMovieViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailMovieViewController") as? DetailMovieViewController else {
+        guard let detailMovieViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController else {
             return
         }
         //detailMovieViewController.setMovie() // pass the data movie selected here
