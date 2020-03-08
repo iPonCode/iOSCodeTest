@@ -48,7 +48,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lc7-9e-BgB"/>
                     <connections>
-                        <outlet property="tableView" destination="QEE-Mt-FhV" id="ryv-MW-5e8"/>
+                        <outlet property="tableView" destination="QEE-Mt-FhV" id="tsQ-Kr-qmU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldr-BH-kb1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
