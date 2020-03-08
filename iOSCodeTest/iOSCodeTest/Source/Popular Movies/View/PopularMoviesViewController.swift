@@ -13,7 +13,7 @@ class PopularMoviesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: PopularMoviesViewModel = PopularMoviesViewModelImpl()
-    // TODO: Declare an PopularMovies Array
+    var movies: [PopularMovie] = [PopularMovie]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

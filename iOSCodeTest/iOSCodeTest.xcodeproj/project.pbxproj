@@ -22,6 +22,7 @@
 		D02F7853241484CD00DD7C8F /* ModelPopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F7852241484CD00DD7C8F /* ModelPopularMovies.swift */; };
 		D02F78552414896000DD7C8F /* ModelMovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F78542414896000DD7C8F /* ModelMovieDetails.swift */; };
 		D02F78582414BC4500DD7C8F /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F78572414BC4500DD7C8F /* MovieDetailsViewModel.swift */; };
+		D02F785F241532A800DD7C8F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F785E241532A800DD7C8F /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		D02F7852241484CD00DD7C8F /* ModelPopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPopularMovies.swift; sourceTree = "<group>"; };
 		D02F78542414896000DD7C8F /* ModelMovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMovieDetails.swift; sourceTree = "<group>"; };
 		D02F78572414BC4500DD7C8F /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
+		D02F785E241532A800DD7C8F /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		DC322D858BE1C51A5FE46E43 /* Pods_iOSCodeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSCodeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 		D02F784324140F8E00DD7C8F /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D02F785D2415327F00DD7C8F /* Common */,
 				D02F784E2414523200DD7C8F /* Movie Details */,
 				D02F784724141C9900DD7C8F /* Popular Movies */,
 				D02F7821241409C100DD7C8F /* AppDelegate.swift */,
@@ -235,6 +238,14 @@
 				D02F7852241484CD00DD7C8F /* ModelPopularMovies.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D02F785D2415327F00DD7C8F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D02F785E241532A800DD7C8F /* Observable.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +422,7 @@
 				D02F7822241409C100DD7C8F /* AppDelegate.swift in Sources */,
 				D02F78502414526B00DD7C8F /* MovieDetailsViewController.swift in Sources */,
 				D02F78552414896000DD7C8F /* ModelMovieDetails.swift in Sources */,
+				D02F785F241532A800DD7C8F /* Observable.swift in Sources */,
 				D02F7853241484CD00DD7C8F /* ModelPopularMovies.swift in Sources */,
 				D02F7824241409C100DD7C8F /* SceneDelegate.swift in Sources */,
 				D02F78582414BC4500DD7C8F /* MovieDetailsViewModel.swift in Sources */,

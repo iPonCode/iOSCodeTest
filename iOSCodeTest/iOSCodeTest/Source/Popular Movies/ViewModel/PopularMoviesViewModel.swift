@@ -10,14 +10,15 @@ import Alamofire
 
 // With this protocol we can change current ViewModel implementation for another one without change any other thing
 protocol PopularMoviesViewModel {
+    var movies: Observable<[PopularMovie]> {get}
     func retrievePopularMovies()
 }
 
 // Here all business logic
 class PopularMoviesViewModelImpl: PopularMoviesViewModel {
-    
-    var movies: [PopularMovie] = []
-    
+
+    var movies = Observable<[PopularMovie]>([], thread: .main)
+
     // The Webservice call
     func retrievePopularMovies() {
         print("retrieving popular movies from Webservice..")
@@ -30,8 +31,8 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
                 return
             }
             
-            self?.movies = popularMovies.results
-            print(self?.movies ?? "NO MOVIES")
+            self?.movies.value = popularMovies.results
+            print(self?.movies.value ?? "NO MOVIES")
             
             }
         }
