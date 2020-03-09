@@ -12,6 +12,7 @@ import Alamofire
 protocol MovieDetailsViewModel {
     var details: Observable<MovieDetails> {get}
     func retrieveMovieDetails(_ id: Int)
+    func buildImagedUrl(_ path: String?) -> String?
 }
 
 // Here all business logic
@@ -51,4 +52,18 @@ class MovieDetailsViewModelImpl: MovieDetailsViewModel {
 
     }
     
+    func buildImagedUrl(_ path: String?) -> String? {
+        
+        guard let path = path else {
+            return nil
+        }
+        
+        // path includes the / like this: /ya9ojfuWylP4P6iiaIaxz67Chu0.jpg
+        // TODO: get this configuration from webservice and cache
+        let baseUrl = "https://image.tmdb.org/t/p/"
+        let posterSize = "w154" // TODO: Create enum with all sizes and pass through as a parameter
+        
+        return baseUrl + posterSize + path
+    }
+        
 }

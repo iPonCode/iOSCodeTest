@@ -66,13 +66,27 @@
                     <view key="view" contentMode="scaleToFill" id="Gce-wk-Sir">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AJj-pV-OV7">
+                                <rect key="frame" x="4" y="48" width="406" height="810"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AJj-pV-OV7" firstAttribute="top" secondItem="tqW-Ac-cAn" secondAttribute="top" constant="4" id="G33-im-o16"/>
+                            <constraint firstItem="AJj-pV-OV7" firstAttribute="leading" secondItem="tqW-Ac-cAn" secondAttribute="leading" constant="4" id="m7C-sx-K3c"/>
+                            <constraint firstItem="tqW-Ac-cAn" firstAttribute="trailing" secondItem="AJj-pV-OV7" secondAttribute="trailing" constant="4" id="rkD-iJ-76R"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tqW-Ac-cAn"/>
                     </view>
+                    <connections>
+                        <outlet property="stackView" destination="AJj-pV-OV7" id="JSC-hR-tMs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0x-Z7-NY9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="441" y="-302"/>
+            <point key="canvasLocation" x="440.57971014492756" y="-302.00892857142856"/>
         </scene>
     </scenes>
 </document>
