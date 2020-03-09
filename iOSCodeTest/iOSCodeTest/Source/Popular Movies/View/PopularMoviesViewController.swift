@@ -53,11 +53,12 @@ class PopularMoviesViewController: UIViewController {
     }
     
     // TODO: pass movie detail data
-    func viewMovieDetails() {
+    func viewMovieDetails(_ id: Int) {
         guard let detailMovieViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController else {
             return
         }
         // TODO: pass through the movie.id
+        detailMovieViewController.setMovieId(id)
         navigationController?.pushViewController(detailMovieViewController, animated: true)
     }
 }
@@ -100,7 +101,7 @@ extension PopularMoviesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //let movieId = movies[indexPath.row].id
-        viewMovieDetails() // TODO: pass through the movie.id
+        let movieId = movies[indexPath.row].id
+        viewMovieDetails(movieId)
     }
 }

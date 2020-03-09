@@ -22,6 +22,7 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
 
     // The Webservice call
     func retrievePopularMovies() {
+        
         print("retrieving popular movies from Webservice..")
         
         let url = buildPopularMoviesUrl()

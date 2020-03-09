@@ -26,7 +26,6 @@ class PopularMovieCellImpl: UITableViewCell, PopularMovieCell {
     // This occurs when the xib is ready
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.backgroundColor = .white
     }
     
     func configure(id: Int, title: String, posterUrl: String, releaseDate: String, overview: String) {
