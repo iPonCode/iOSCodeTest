@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopularMovieCell" id="hdP-OR-vXy" customClass="PopularMovieCellImpl" customModule="iOSCodeTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="154"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hdP-OR-vXy" id="mP6-z6-xtM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="154"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_poster_image" translatesAutoresizingMaskIntoConstraints="NO" id="ZeI-Gi-0JU">
+                        <rect key="frame" x="8" y="8" width="92" height="138"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ZeI-Gi-0JU" secondAttribute="height" multiplier="2:3" id="vlM-KA-8fb"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-cR-1vz" userLabel="Title">
+                        <rect key="frame" x="108" y="8" width="298" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                        <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8M-2V-Oe4" userLabel="Id">
+                        <rect key="frame" x="108" y="37" width="13.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKj-TE-ccf" userLabel="Release Date">
+                        <rect key="frame" x="311" y="37" width="95" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPl-S6-72J" userLabel="Overview">
+                        <rect key="frame" x="108" y="64.5" width="298" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZeI-Gi-0JU" firstAttribute="top" secondItem="mP6-z6-xtM" secondAttribute="top" constant="8" id="3xF-cz-e4k"/>
+                    <constraint firstItem="i8M-2V-Oe4" firstAttribute="leading" secondItem="ZeI-Gi-0JU" secondAttribute="trailing" constant="8" id="90w-Tk-L5v"/>
+                    <constraint firstItem="xOb-cR-1vz" firstAttribute="top" secondItem="mP6-z6-xtM" secondAttribute="top" constant="8" id="Bo7-WH-Lc8"/>
+                    <constraint firstAttribute="trailing" secondItem="vKj-TE-ccf" secondAttribute="trailing" constant="8" id="LWV-oJ-flD"/>
+                    <constraint firstAttribute="trailing" secondItem="xOb-cR-1vz" secondAttribute="trailing" constant="8" id="M9Z-bP-OmW"/>
+                    <constraint firstItem="LPl-S6-72J" firstAttribute="leading" secondItem="ZeI-Gi-0JU" secondAttribute="trailing" constant="8" id="Mse-p4-RlI"/>
+                    <constraint firstItem="vKj-TE-ccf" firstAttribute="top" secondItem="xOb-cR-1vz" secondAttribute="bottom" constant="8" id="Op0-7x-ENM"/>
+                    <constraint firstAttribute="trailing" secondItem="LPl-S6-72J" secondAttribute="trailing" constant="8" id="ZOM-um-wTe"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LPl-S6-72J" secondAttribute="bottom" constant="8" id="cWB-Sg-Eil"/>
+                    <constraint firstAttribute="bottom" secondItem="ZeI-Gi-0JU" secondAttribute="bottom" constant="8" id="f3k-nU-uQw"/>
+                    <constraint firstItem="xOb-cR-1vz" firstAttribute="leading" secondItem="ZeI-Gi-0JU" secondAttribute="trailing" constant="8" id="jVe-ao-ujf"/>
+                    <constraint firstItem="ZeI-Gi-0JU" firstAttribute="leading" secondItem="mP6-z6-xtM" secondAttribute="leading" constant="8" id="mh5-CC-kvf"/>
+                    <constraint firstItem="LPl-S6-72J" firstAttribute="top" secondItem="i8M-2V-Oe4" secondAttribute="bottom" constant="8" id="rSe-JU-xqd"/>
+                    <constraint firstItem="i8M-2V-Oe4" firstAttribute="top" secondItem="xOb-cR-1vz" secondAttribute="bottom" constant="8" id="sUe-sC-ssB"/>
+                    <constraint firstItem="vKj-TE-ccf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i8M-2V-Oe4" secondAttribute="trailing" constant="8" id="w6M-Iy-xDw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="idLabel" destination="i8M-2V-Oe4" id="S8y-kF-8Uz"/>
+                <outlet property="overviewLabel" destination="LPl-S6-72J" id="d6Z-h3-xwP"/>
+                <outlet property="posterImage" destination="ZeI-Gi-0JU" id="bhW-OT-FBj"/>
+                <outlet property="releaseDateLabel" destination="vKj-TE-ccf" id="TNl-hC-Id2"/>
+                <outlet property="titleLabel" destination="xOb-cR-1vz" id="H1q-l2-X8P"/>
+            </connections>
+            <point key="canvasLocation" x="128.98550724637681" y="169.41964285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="default_poster_image" width="92" height="138"/>
+    </resources>
+</document>
