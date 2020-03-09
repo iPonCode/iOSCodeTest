@@ -12,10 +12,13 @@ class MovieDetailsViewController: UIViewController {
     // TODO: Declare a var for the movie data
     
     var viewModel: MovieDetailsViewModel = MovieDetailsViewModelImpl()
+    var details: MovieDetails = MovieDetails()
+    var movieID: Int = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        bindViewModel()
         retrieveMovieDetails()
     }
     
@@ -31,7 +34,27 @@ class MovieDetailsViewController: UIViewController {
         // TODO: paint all
     }
     
+    // Create binders
+    func bindViewModel() {
+        
+        // Start listening to this var
+        viewModel.details.bind({ [weak self] (result) in
+            guard let result = result else {
+                return
+            }
+            // Whenever chages are made on int, will execute this code
+            self?.details = result
+            // TODO: reload data
+        })
+        
+    }
+    
     func retrieveMovieDetails() {
-        viewModel.retrieveMovieDetails()
+        print(movieID)
+        viewModel.retrieveMovieDetails(movieID)
+    }
+    
+    func setMovieId(_ id: Int) {
+        movieID = id
     }
 }

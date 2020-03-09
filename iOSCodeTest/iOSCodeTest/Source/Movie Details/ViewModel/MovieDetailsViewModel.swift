@@ -10,27 +10,21 @@ import Alamofire
 
 // With this protocol we can change current ViewModel implementation for another one without change any other thing
 protocol MovieDetailsViewModel {
-    func retrieveMovieDetails()
+    var details: Observable<MovieDetails> {get}
+    func retrieveMovieDetails(_ id: Int)
 }
 
 // Here all business logic
 class MovieDetailsViewModelImpl: MovieDetailsViewModel {
     
-    var details: MovieDetails = MovieDetails()
-    
+    var details = Observable<MovieDetails>(MovieDetails(), thread: .main)
+
     // The Webservice call
-    func retrieveMovieDetails() {
+    func retrieveMovieDetails(_ id: Int) {
 
         print("retrieving movie detail from Webservice..")
         
-        let baseUrl = "https://api.themoviedb.org/3/movie/"
-        let apiKey = "72528dfa50871fd94e3094b9d73cd3be"
-        // Options parameters
-        let language = "es-ES"              //ISO 639-1 value to display translated data for supported fields
-        //let append_to_response = "images" //feature to append request with the same namespace to response (videos,images)
-        let mockMovieID = "475303"
-        
-        let url = baseUrl + mockMovieID + "?api_key=" + apiKey + "&language=" + language //+ "&append_to_response=" + append_to_response
+        let url = buildMovieDetailsUrl(id)
         AF.request(url).responseJSON {[weak self] response in
             
             guard let serverData = response.data, let movieDetails = try? JSONDecoder().decode(MovieDetails.self, from: serverData) else {
@@ -38,9 +32,23 @@ class MovieDetailsViewModelImpl: MovieDetailsViewModel {
                 return
             }
             
-            self?.details = movieDetails
-            print(self?.details ?? "NO MOVIE DETAILS")
+            self?.details.value = movieDetails
+            print(self?.details.value ?? "NO MOVIE DETAILS")
         }
+    }
+    
+    func buildMovieDetailsUrl(_ id: Int) -> String {
+
+        // TODO: put all this info like apiKey in a Constant sturct
+        let baseUrl = "https://api.themoviedb.org/3/movie/"
+        let apiKey = "72528dfa50871fd94e3094b9d73cd3be"
+        
+        // Options parameters
+        let language = "es-ES"              //ISO 639-1 value to display translated data for supported fields
+        //let append_to_response = "images" //feature to append request with the same namespace to response (videos,images)
+        
+        return baseUrl + String(id) + "?api_key=" + apiKey + "&language=" + language //+ "&append_to_response=" + append_to_response
+
     }
     
 }

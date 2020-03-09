@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import AlamofireImage
 
-// TODO: The cell protocol for actions to pass data from cell to ViewController if needed
+// TODO: The cell protocol for actions to pass data from cell to ViewController if needed (like mark as favourite feature)
 
 protocol PopularMovieCell {
-    func configure(id: Int, title: String, posterPath: String, releaseDate: String, overview: String)
+    func configure(id: Int, title: String, posterUrl: String, releaseDate: String, overview: String)
 }
 
 class PopularMovieCellImpl: UITableViewCell, PopularMovieCell {
@@ -25,17 +26,20 @@ class PopularMovieCellImpl: UITableViewCell, PopularMovieCell {
     // This occurs when the xib is ready
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.backgroundColor = .white
     }
     
-    func configure(id: Int, title: String, posterPath: String, releaseDate: String, overview: String) {
+    func configure(id: Int, title: String, posterUrl: String, releaseDate: String, overview: String) {
         
         idLabel.text = String(format: "id: %@", String(id))
         titleLabel.text = title
         releaseDateLabel.text = releaseDate
         overviewLabel.text = overview
         
-        // TODO: retrieve image from url
+        // Load poster images from url
+        guard let url = URL(string: posterUrl) else {
+            return
+        }
+        posterImage.af.setImage(withURL: url)
     }
     
 }

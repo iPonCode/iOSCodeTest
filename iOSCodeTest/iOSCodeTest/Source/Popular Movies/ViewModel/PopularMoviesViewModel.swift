@@ -12,6 +12,7 @@ import Alamofire
 protocol PopularMoviesViewModel {
     var movies: Observable<[PopularMovie]> {get}
     func retrievePopularMovies()
+    func buildImagedUrl(_ path: String) -> String
 }
 
 // Here all business logic
@@ -21,6 +22,7 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
 
     // The Webservice call
     func retrievePopularMovies() {
+        
         print("retrieving popular movies from Webservice..")
         
         let url = buildPopularMoviesUrl()
