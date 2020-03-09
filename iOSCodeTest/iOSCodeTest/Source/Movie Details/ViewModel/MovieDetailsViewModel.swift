@@ -17,7 +17,7 @@ protocol MovieDetailsViewModel {
 // Here all business logic
 class MovieDetailsViewModelImpl: MovieDetailsViewModel {
     
-    var details = Observable<MovieDetails>(MovieDetails(), thread: .main)
+    var details = Observable<MovieDetails>(nil, thread: .main)
 
     // The Webservice call
     func retrieveMovieDetails(_ id: Int) {
@@ -33,7 +33,7 @@ class MovieDetailsViewModelImpl: MovieDetailsViewModel {
             }
             
             self?.details.value = movieDetails
-            print(self?.details.value ?? "NO MOVIE DETAILS")
+            //print(self?.details.value ?? "NO MOVIE DETAILS")
         }
     }
     

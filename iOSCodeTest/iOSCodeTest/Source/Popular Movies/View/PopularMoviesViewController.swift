@@ -44,6 +44,7 @@ class PopularMoviesViewController: UIViewController {
             // Whenever chages are made on int, will execute this code
             self?.movies = result
             self?.tableView.reloadData()
+            dump(self?.movies)
         })
         
     }

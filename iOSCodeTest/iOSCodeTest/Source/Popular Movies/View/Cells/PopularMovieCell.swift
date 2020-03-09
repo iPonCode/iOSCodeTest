@@ -11,7 +11,7 @@ import AlamofireImage
 // TODO: The cell protocol for actions to pass data from cell to ViewController if needed (like mark as favourite feature)
 
 protocol PopularMovieCell {
-    func configure(id: Int, title: String, posterUrl: String, releaseDate: String, overview: String)
+    func configure(id: Int, title: String, posterUrl: String?, releaseDate: String, overview: String)
 }
 
 class PopularMovieCellImpl: UITableViewCell, PopularMovieCell {
@@ -28,14 +28,20 @@ class PopularMovieCellImpl: UITableViewCell, PopularMovieCell {
         super.awakeFromNib()
     }
     
-    func configure(id: Int, title: String, posterUrl: String, releaseDate: String, overview: String) {
+    func configure(id: Int, title: String, posterUrl: String?, releaseDate: String, overview: String) {
         
         idLabel.text = String(format: "id: %@", String(id))
         titleLabel.text = title
         releaseDateLabel.text = releaseDate
         overviewLabel.text = overview
         
-        // Load poster images from url
+        // Set the default poster image if posterUrl doesn't exist
+        guard let posterUrl = posterUrl else {
+            posterImage.image = UIImage(named: "default_poster_image")
+            return
+        }
+        
+        // Have posterUrl, so try to loads poster image from the url
         guard let url = URL(string: posterUrl) else {
             return
         }

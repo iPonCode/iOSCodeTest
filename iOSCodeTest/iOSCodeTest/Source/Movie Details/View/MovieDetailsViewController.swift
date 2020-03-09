@@ -12,8 +12,8 @@ class MovieDetailsViewController: UIViewController {
     // TODO: Declare a var for the movie data
     
     var viewModel: MovieDetailsViewModel = MovieDetailsViewModelImpl()
-    var details: MovieDetails = MovieDetails()
-    var movieID: Int = Int()
+    var details: MovieDetails?
+    var movieID: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,14 +44,17 @@ class MovieDetailsViewController: UIViewController {
             }
             // Whenever chages are made on int, will execute this code
             self?.details = result
+            dump(self?.details)
             // TODO: reload data
         })
         
     }
     
     func retrieveMovieDetails() {
-        print(movieID)
-        viewModel.retrieveMovieDetails(movieID)
+        if let movieID = movieID {
+            print(movieID)
+            viewModel.retrieveMovieDetails(movieID)
+        }
     }
     
     func setMovieId(_ id: Int) {

@@ -12,7 +12,7 @@ import Alamofire
 protocol PopularMoviesViewModel {
     var movies: Observable<[PopularMovie]> {get}
     func retrievePopularMovies()
-    func buildImagedUrl(_ path: String) -> String
+    func buildImagedUrl(_ path: String?) -> String?
 }
 
 // Here all business logic
@@ -34,7 +34,7 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
             }
             
             self?.movies.value = popularMovies.results // Save data received from webservice
-            
+            //print(self?.movies.value?.description ?? "NO POPULAR MOVIES")
             }
         }
     
@@ -46,13 +46,17 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
         
         // Options parameters
         let language = "es-ES"  //ISO 639-1 value to display translated data for supported fields
-        let page = "1"          //from 1 to 1000
+        let page = "242"        //from 1 to 500, 20 results per page, total 10000
         let region = "ES"       //ISO 3166-1 code to filter release dates, uppercase
         
         return baseUrl + "?api_key=" + apiKey + "&language=" + language + "&page=" + page + "&region=" + region
     }
     
-    func buildImagedUrl(_ path: String) -> String {
+    func buildImagedUrl(_ path: String?) -> String? {
+        
+        guard let path = path else {
+            return nil
+        }
         
         // path includes the / like this: /ya9ojfuWylP4P6iiaIaxz67Chu0.jpg
         // TODO: get this configuration from webservice and cache
