@@ -27,10 +27,12 @@ class PopularMoviesViewController: UIViewController {
         // Register cell
         tableView.register(UINib(nibName: "PopularMovieCell", bundle: nil), forCellReuseIdentifier: PopularMoviesViewController.MovieCellIdAndNibName)
         
-        let refreshButton = UIBarButtonItem(title: "Refresh", style: .done, target: self, action: #selector(retrievePopularMovies))
+        //let refreshButton = UIBarButtonItem(title: "Actualizar", style: .done, target: self, action: #selector(retrievePopularMovies))
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(retrievePopularMovies))
         navigationItem.setRightBarButton(refreshButton, animated: true)
 
-        navigationItem.title = "Popular Movies"
+        //navigationItem.title = "Cargando.."
+        title = "Cargando.."
     }
     
     // Create binders
@@ -41,19 +43,27 @@ class PopularMoviesViewController: UIViewController {
             guard let result = result else {
                 return
             }
+            
             // Whenever chages are made on int, will execute this code
             self?.movies = result
-            self?.tableView.reloadData()
             dump(self?.movies)
+            self?.updateTitle()
+            self?.tableView.reloadData()
         })
         
     }
     
     @objc func retrievePopularMovies() {
+        //navigationItem.title = "Cargando.."
+        title = "Cargando.."
         viewModel.retrievePopularMovies()
     }
     
-    // TODO: pass movie detail data
+    func updateTitle() {
+        //navigationItem.title = "Películas populares"
+        title = "Películas populares"
+    }
+    
     func viewMovieDetails(_ id: Int) {
         guard let detailMovieViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController else {
             return

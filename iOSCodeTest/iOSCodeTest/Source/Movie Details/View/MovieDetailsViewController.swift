@@ -29,7 +29,7 @@ class MovieDetailsViewController: UIViewController {
     func configureView() {
         //view.backgroundColor = .systemBlue
         
-        title = "Loading.."
+        title = "Cargando.."
         stackView.spacing = 4
         stackView.distribution = .fillProportionally
     }
