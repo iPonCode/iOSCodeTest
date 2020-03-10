@@ -32,8 +32,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="blY-WE-AQF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="e4a-FS-rkQ" id="xsl-db-GKd"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QEE-Mt-FhV">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="e4a-FS-rkQ" id="igZ-Se-GDu"/>
@@ -43,21 +50,25 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="blY-WE-AQF" firstAttribute="leading" secondItem="vWS-XN-vtD" secondAttribute="leading" id="HTj-9r-vUa"/>
+                            <constraint firstItem="blY-WE-AQF" firstAttribute="top" secondItem="vWS-XN-vtD" secondAttribute="top" id="LB4-9c-6Ce"/>
+                            <constraint firstItem="QEE-Mt-FhV" firstAttribute="top" secondItem="blY-WE-AQF" secondAttribute="bottom" id="WQ5-TV-Lhg"/>
+                            <constraint firstItem="blY-WE-AQF" firstAttribute="trailing" secondItem="vWS-XN-vtD" secondAttribute="trailing" id="coX-71-3u2"/>
                             <constraint firstItem="vWS-XN-vtD" firstAttribute="bottom" secondItem="QEE-Mt-FhV" secondAttribute="bottom" id="iKk-66-epk"/>
                             <constraint firstItem="QEE-Mt-FhV" firstAttribute="leading" secondItem="vWS-XN-vtD" secondAttribute="leading" id="kxB-cR-cLm"/>
                             <constraint firstItem="vWS-XN-vtD" firstAttribute="trailing" secondItem="QEE-Mt-FhV" secondAttribute="trailing" id="sB7-dO-Ygc"/>
-                            <constraint firstItem="QEE-Mt-FhV" firstAttribute="top" secondItem="vWS-XN-vtD" secondAttribute="top" id="wJo-Lg-Cvt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vWS-XN-vtD"/>
                     </view>
                     <navigationItem key="navigationItem" id="lc7-9e-BgB"/>
                     <connections>
+                        <outlet property="searchBar" destination="blY-WE-AQF" id="cUu-xp-DHD"/>
                         <outlet property="tableView" destination="QEE-Mt-FhV" id="tsQ-Kr-qmU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ldr-BH-kb1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-292" y="-302"/>
+            <point key="canvasLocation" x="-292.75362318840581" y="-302.00892857142856"/>
         </scene>
         <!--Movie Details View Controller-->
         <scene sceneID="qu1-Sl-2WF">
