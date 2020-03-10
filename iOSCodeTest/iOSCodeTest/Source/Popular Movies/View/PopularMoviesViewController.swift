@@ -11,6 +11,7 @@ class PopularMoviesViewController: UIViewController {
     
     static let MovieCellIdAndNibName = "PopularMovieCell"
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var viewModel: PopularMoviesViewModel = PopularMoviesViewModelImpl()
     var movies: [PopularMovie] = [PopularMovie]()
@@ -27,7 +28,10 @@ class PopularMoviesViewController: UIViewController {
         // Register cell
         tableView.register(UINib(nibName: "PopularMovieCell", bundle: nil), forCellReuseIdentifier: PopularMoviesViewController.MovieCellIdAndNibName)
         
-        //let refreshButton = UIBarButtonItem(title: "Actualizar", style: .done, target: self, action: #selector(retrievePopularMovies))
+        // Configure searchBar
+        searchBar.barStyle = .default
+        searchBar.showsCancelButton = false
+        
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(retrievePopularMovies))
         navigationItem.setRightBarButton(refreshButton, animated: true)
 
@@ -61,7 +65,7 @@ class PopularMoviesViewController: UIViewController {
     
     func updateTitle() {
         //navigationItem.title = "Películas populares"
-        title = "Películas populares"
+        title = String(format: "Películas populares (%d)", movies.count)
     }
     
     func viewMovieDetails(_ id: Int) {
@@ -72,6 +76,7 @@ class PopularMoviesViewController: UIViewController {
         detailMovieViewController.setMovieId(id)
         navigationController?.pushViewController(detailMovieViewController, animated: true)
     }
+
 }
 
 // MARK: - Methods of UITableViewDataSource protocol
@@ -104,6 +109,7 @@ extension PopularMoviesViewController: UITableViewDataSource {
         
         return UITableViewCell()
     }
+
 }
 
 // MARK: - Methods of UITableViewDelegate protocol
@@ -113,6 +119,25 @@ extension PopularMoviesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let movieId = movies[indexPath.row].id
+        searchBar.resignFirstResponder()
         viewMovieDetails(movieId)
     }
+}
+
+// MARK: - Methods of UISearchBarDelegate
+
+extension PopularMoviesViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchText(searchText)
+     }
+    
 }

@@ -13,14 +13,26 @@ protocol PopularMoviesViewModel {
     var movies: Observable<[PopularMovie]> {get}
     func retrievePopularMovies()
     func buildImagedUrl(_ path: String?) -> String?
+    func searchText(_ text: String)
 }
 
 // Here all business logic
 class PopularMoviesViewModelImpl: PopularMoviesViewModel {
 
     var movies = Observable<[PopularMovie]>([], thread: .main)
+    var localMovies: [PopularMovie] = []
+    
+    private var filterText: String = "" {
+        didSet {
+            updateMoviesWithFilter()
+        }
+    }
 
     // The Webservice call
+    // TODO: Load more results and append to localMovies array that was previously loaded,
+    //       perhaps, can use the bar button to load more results instead to refresh.
+    //       Will need to control webservice page when build the url to request
+    
     func retrievePopularMovies() {
         
         print("retrieving popular movies from Webservice..")
@@ -33,20 +45,31 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
                 return
             }
             
-            self?.movies.value = popularMovies.results // Save data received from webservice
-            //print(self?.movies.value?.description ?? "NO POPULAR MOVIES")
+            self?.localMovies = popularMovies.results // Save data received from webservice
+
+            // Set movies data that will be binded taking account of whether current filter
+            self?.updateMoviesWithFilter()
+            
             }
         }
     
+    func updateMoviesWithFilter () {
+        
+        // TODO: Search in more fields than titles, perhaps overviews
+        self.movies.value = !filterText.isEmpty ?
+            self.localMovies.filter({ $0.title.lowercased().contains(filterText.lowercased()) }) :
+            self.localMovies
+    }
+    
     func buildPopularMoviesUrl() -> String {
         
-        // TODO: put all this info like apiKey in a Constant sturct
+        // TODO: put all this info like apiKey, etc.. in a static let Constants sturct
         let baseUrl = "https://api.themoviedb.org/3/movie/popular"
         let apiKey = "72528dfa50871fd94e3094b9d73cd3be"
         
-        // Options parameters
+        // Optionals parameters
         let language = "es-ES"  //ISO 639-1 value to display translated data for supported fields
-        let page = "242"        //from 1 to 500, 20 results per page, total 10000
+        let page = "7"        //from 1 to 500, 20 results per page, total 10000 results
         let region = "ES"       //ISO 3166-1 code to filter release dates, uppercase
         
         return baseUrl + "?api_key=" + apiKey + "&language=" + language + "&page=" + page + "&region=" + region
@@ -59,11 +82,15 @@ class PopularMoviesViewModelImpl: PopularMoviesViewModel {
         }
         
         // path includes the / like this: /ya9ojfuWylP4P6iiaIaxz67Chu0.jpg
-        // TODO: get this configuration from webservice and cache
+        // TODO: Get this configuration from webservice and cache it
         let baseUrl = "https://image.tmdb.org/t/p/"
         let posterSize = "w92" // TODO: Create enum with all sizes and pass through as a parameter
         
         return baseUrl + posterSize + path
+    }
+    
+    func searchText(_ text: String) {
+        filterText = text
     }
         
 }
